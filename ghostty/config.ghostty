@@ -3,8 +3,8 @@ shell-integration-features = no-cursor
 
 font-thicken = true
 font-size = 16
-font-family = BlexMono Nerd Font
-# font-family = JetBrainsMono Nerd Font
+# font-family = BlexMono Nerd Font
+font-family = JetBrainsMono Nerd Font
 # font-family = BigBlueTerm437 Nerd Font
 # font-family = SF Mono Terminal
 
@@ -18,4 +18,4 @@ mouse-hide-while-typing = true
 theme = dark:Apple System Colors,light:Apple System Colors Light
 
 background-blur = true
-# background-opacity = 0.8
+background-opacity = 0.8

@@ -1,5 +1,3 @@
-vim.cmd("colorscheme retrobox")
-
 vim.opt.breakindent=true
 vim.opt.confirm=true
 vim.opt.cursorline=true
@@ -23,10 +21,11 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set({"n", "v"}, "<leader>p", [["+p]])
 
 vim.pack.add({
+    "https://github.com/ellisonleao/gruvbox.nvim",
     "https://github.com/wakatime/vim-wakatime",
-    -- "https://github.com/xiyaowong/transparent.nvim",
 })
 
--- vim.api.nvim_create_autocmd("VimEnter", {
---     callback = function() vim.cmd("TransparentEnable") end,
--- })
+require("gruvbox").setup({
+    transparent_mode = true,
+})
+vim.cmd("colorscheme gruvbox")
