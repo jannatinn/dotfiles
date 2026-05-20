@@ -1,0 +1,14 @@
+[user]
+	name = Jannatin Naim
+	email = man@jannatinnaim.com
+	signingkey = ~/.ssh/id_ed25519.pub
+[core]
+	editor = vi
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/id_ed25519.pub
