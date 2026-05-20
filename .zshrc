@@ -4,13 +4,17 @@ eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-alias soz="source $HOME/.zshrc"
+alias vib="vi $HOME/Brewfile"
+
 alias viz="vi $HOME/.zshrc"
+alias soz="source $HOME/.zshrc"
 
 alias vic="vi main.c"
 alias crm="clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm -f main.o && { ./main; STATUS=\$?; rm -f main; (( STATUS )); }"
 alias cfm="clang-format -i -style=\"{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, KeepEmptyLinesAtTheStartOfBlocks: false}\" main.c"
 alias cfrm="cfm && crm"
+
+alias vig="vi $HOME/.gitconfig"
 
 alias gr="read -q \"choice?You sure you want to hard reset and clean? (y/N): \" && echo && git reset --hard HEAD && git clean -fd || echo \"\nAborted.\""
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
