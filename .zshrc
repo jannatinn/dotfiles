@@ -10,7 +10,7 @@ FPATH=$(brew --prefix)/share/zsh-abbr:$FPATH
 export DISABLE_AUTO_TITLE="true"
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 function zvm_after_init() {
-  bindkey -M viins " " abbr-expand-and-insert
+    bindkey -M viins " " abbr-expand-and-insert
 }
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load

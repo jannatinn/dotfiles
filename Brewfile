@@ -17,5 +17,3 @@ brew "bat"
 brew "fastfetch"
 brew "cmatrix"
 brew "btop"
-
-cask "ghostty"
