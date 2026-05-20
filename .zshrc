@@ -1,5 +1,7 @@
 setopt CHASE_LINKS
 
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+
 export PATH="$HOME/.local/bin:$PATH"
 
 alias soz="source $HOME/.zshrc"
@@ -10,6 +12,7 @@ alias crm="clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g 
 alias cfm="clang-format -i -style=\"{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, KeepEmptyLinesAtTheStartOfBlocks: false}\" main.c"
 alias cfrm="cfm && crm"
 
+alias gr="read -q \"choice?You sure you want to hard reset and clean? (y/N): \" && echo && git reset --hard HEAD && git clean -fd || echo \"\nAborted.\""
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gs="git status"
 alias gd="git diff"
