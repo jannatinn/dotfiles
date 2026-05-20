@@ -8,3 +8,8 @@ alias crm="clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g 
 
 alias ga="git add"
 alias gc="git commit"
+alias gac="ga . && gc"
+alias gs="git status"
+alias gd="git diff"
+alias gp="git push -u origin HEAD"
+alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
