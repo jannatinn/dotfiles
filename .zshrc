@@ -1,10 +1,14 @@
 setopt CHASE_LINKS
 
+export PATH="$HOME/.local/bin:$PATH"
+
 alias soz="source $HOME/.zshrc"
 alias viz="vi $HOME/.zshrc"
 
 alias vic="vi main.c"
-alias crm="clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm main.o && (./main; STATUS=$?; rm main; exit $STATUS)"
+alias crm="clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm -f main.o && { ./main; STATUS=\$?; rm -f main; (( STATUS )); }"
+alias cfm="clang-format -i -style=\"{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, KeepEmptyLinesAtTheStartOfBlocks: false}\" main.c"
+alias cfrm="cfm && crm"
 
 alias ga="git add"
 alias gc="git commit"
