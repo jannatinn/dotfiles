@@ -5,6 +5,7 @@ abbr ff='fastfetch'
 
 abbr vib='vi $HOME/.brewfile'
 abbr bb='brew bundle install --file=$HOME/.brewfile'
+abbr bu='brew update && brew upgrade'
 
 abbr vin='vi $HOME/.config/nvim/init.lua'
 
@@ -15,9 +16,10 @@ abbr vizp='vi $HOME/.zsh_plugins.txt'
 abbr soz='source $HOME/.zshrc'
 
 abbr vic='vi main.c'
-abbr crm='clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm -f main.o && ./main; rm main'
+abbr crm='clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm main.o && ./main; rm main'
 abbr cfm='clang-format -i -style="{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, KeepEmptyLinesAtTheStartOfBlocks: false}" main.c'
-abbr cfrm='clang-format -i -style="{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, KeepEmptyLinesAtTheStartOfBlocks: false}" main.c && clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm -f main.o && ./main; rm main'
+abbr cfm='clang-format -i -style=file main.c'
+abbr cfrm='clang-format -i -style=file main.c && clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm main.o && ./main; rm main'
 
 abbr vig='vi $HOME/.gitconfig'
 

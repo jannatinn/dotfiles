@@ -18,6 +18,9 @@ antidote load
 eval "$(zoxide init zsh --cmd j)"
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$(brew --prefix)/opt/llvm/bin:$PATH"
+
+. "$HOME/.cargo/env"
 
 alias vi="nvim"
 alias ls="eza --icons=always --group-directories-first --across --git"
