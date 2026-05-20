@@ -1,5 +1,7 @@
 jeffreytse/zsh-vi-mode
 
+peterhurford/up.zsh
+
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
 zsh-users/zsh-autosuggestions
