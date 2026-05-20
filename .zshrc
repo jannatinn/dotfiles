@@ -20,6 +20,6 @@ eval "$(zoxide init zsh --cmd j)"
 export PATH="$HOME/.local/bin:$PATH"
 
 alias vi="nvim"
-alias ls="eza --icons=always --group-directories-first"
+alias ls="eza --icons=always --group-directories-first --across --git"
 
 eval "$(starship init zsh)"

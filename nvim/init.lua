@@ -1,7 +1,6 @@
 vim.cmd("colorscheme retrobox")
 
 vim.opt.breakindent=true
-vim.opt.clipboard="unnamedplus"
 vim.opt.confirm=true
 vim.opt.cursorline=true
 vim.opt.expandtab=true
@@ -20,6 +19,14 @@ vim.opt.tabstop=4
 vim.opt.termguicolors=true
 vim.opt.timeoutlen=280
 
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({"n", "v"}, "<leader>p", [["+p]])
+
 vim.pack.add({
     "https://github.com/wakatime/vim-wakatime",
+    -- "https://github.com/xiyaowong/transparent.nvim",
 })
+
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     callback = function() vim.cmd("TransparentEnable") end,
+-- })

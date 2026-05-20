@@ -9,6 +9,7 @@ brew "lazygit"
 brew "gh"
 
 brew "neovim"
+brew "tmux"
 
 brew "eza"
 brew "bat"
@@ -16,3 +17,5 @@ brew "bat"
 brew "fastfetch"
 brew "cmatrix"
 brew "btop"
+
+cask "ghostty"

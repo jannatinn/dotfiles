@@ -3,11 +3,12 @@ abbr via='vi $HOME/.abbreviations'
 abbr cl='clear'
 abbr ff='fastfetch'
 
-abbr bb='brew bundle --file=$HOME/.brewfile'
+abbr vib='vi $HOME/.brewfile'
+abbr bb='brew bundle install --file=$HOME/.brewfile'
 
 abbr vin='vi $HOME/.config/nvim/init.lua'
 
-abbr vib='vi $HOME/.brewfile'
+abbr vigh='vi $HOME/.config/ghostty/config.ghostty'
 
 abbr viz='vi $HOME/.zshrc'
 abbr vizp='vi $HOME/.zsh_plugins.txt'
@@ -29,3 +30,6 @@ abbr gc='git commit'
 abbr gp='git push -u origin HEAD'
 abbr gac='git add . && git commit'
 abbr gacp='git add . && git commit && git push -u origin HEAD'
+
+abbr ghb='gh browse'
+abbr ghrc='gh repo create my-project --private --source=. --remote=upstream'

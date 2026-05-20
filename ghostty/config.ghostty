@@ -1,0 +1,20 @@
+term = xterm-256color
+shell-integration-features = no-cursor
+
+font-thicken = true
+font-size = 16
+# font-family = BlexMono Nerd Font
+# font-family = JetBrainsMono Nerd Font
+font-family = SF Mono Terminal
+
+window-padding-balance = true
+# window-padding-x = 8
+
+title = " "
+macos-titlebar-proxy-icon = hidden
+mouse-hide-while-typing = true
+
+theme = dark:Apple System Colors,light:Apple System Colors Light
+
+background-blur = true
+# background-opacity = 0.8
