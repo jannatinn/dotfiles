@@ -11,4 +11,6 @@ brew "zoxide"
 brew "eza"
 brew "bat"
 
+brew "fastfetch"
+brew "cmatrix"
 brew "btop"

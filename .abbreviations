@@ -1,6 +1,7 @@
 abbr via='vi $HOME/.abbreviations'
 
 abbr cl='clear'
+abbr ff='fastfetch'
 
 abbr vin='vi $HOME/.config/nvim/init.lua'
 
