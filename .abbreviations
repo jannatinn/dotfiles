@@ -1,6 +1,8 @@
 abbr via='vi $HOME/.abbreviations'
 
-abbr ls='eza --icons=always --group-directories-first'
+abbr cl='clear'
+
+abbr vin='vi $HOME/.config/nvim/init.lua'
 
 abbr vib='vi $HOME/Brewfile'
 
