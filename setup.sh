@@ -1,9 +1,10 @@
 mkdir -p ~/.config
 
-ln -sf "$(pwd)/.brewfile" ~/.brewfile
+ln -sf "$(pwd)/Brewfile" ~/.brewfile
 ln -sf "$(pwd)/.zshrc" ~/.zshrc
 ln -sf "$(pwd)/.zsh_plugins.txt" ~/.zsh_plugins.txt
 ln -sf "$(pwd)/.abbreviations" ~/.abbreviations
+ln -sf "$(pwd)/starship.toml" ~/.config/starship.toml
 ln -sf "$(pwd)/.gitconfig" ~/.gitconfig
 ln -sf "$(pwd)/.vimrc" ~/.vimrc
 ln -sf "$(pwd)/nvim" ~/.config/nvim

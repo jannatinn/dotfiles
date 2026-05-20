@@ -21,3 +21,5 @@ export PATH="$HOME/.local/bin:$PATH"
 
 alias vi="nvim"
 alias ls="eza --icons=always --group-directories-first"
+
+eval "$(starship init zsh)"

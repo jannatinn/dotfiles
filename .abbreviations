@@ -7,7 +7,7 @@ abbr bb='brew bundle --file=$HOME/.brewfile'
 
 abbr vin='vi $HOME/.config/nvim/init.lua'
 
-abbr vib='vi $HOME/Brewfile'
+abbr vib='vi $HOME/.brewfile'
 
 abbr viz='vi $HOME/.zshrc'
 abbr vizp='vi $HOME/.zsh_plugins.txt'
