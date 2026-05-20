@@ -2,26 +2,19 @@ setopt CHASE_LINKS
 
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
+export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.abbreviations"
+export ABBR_SET_FROM_SOURCE=true
+source $(brew --prefix)/share/zsh-abbr/zsh-abbr.zsh
+FPATH=$(brew --prefix)/share/zsh-abbr:$FPATH
+
+export DISABLE_AUTO_TITLE="true"
+zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
+function zvm_after_init() {
+  bindkey -M viins " " abbr-expand-and-insert
+}
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+eval "$(zoxide init zsh --cmd j)"
+
 export PATH="$HOME/.local/bin:$PATH"
-
-alias vib="vi $HOME/Brewfile"
-
-alias viz="vi $HOME/.zshrc"
-alias soz="source $HOME/.zshrc"
-
-alias vic="vi main.c"
-alias crm="clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm -f main.o && { ./main; STATUS=\$?; rm -f main; (( STATUS )); }"
-alias cfm="clang-format -i -style=\"{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, KeepEmptyLinesAtTheStartOfBlocks: false}\" main.c"
-alias cfrm="cfm && crm"
-
-alias vig="vi $HOME/.gitconfig"
-
-alias gr="read -q \"choice?You sure you want to hard reset and clean? (y/N): \" && echo && git reset --hard HEAD && git clean -fd || echo \"\nAborted.\""
-alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gs="git status"
-alias gd="git diff"
-alias ga="git add"
-alias gc="git commit"
-alias gp="git push -u origin HEAD"
-alias gac="ga . && gc"
-alias gacp="gac && gp"

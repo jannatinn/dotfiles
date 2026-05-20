@@ -1,5 +1,7 @@
 ln -sf "$(pwd)/Brewfile" ~/Brewfile
 ln -sf "$(pwd)/.zshrc" ~/.zshrc
+ln -sf "$(pwd)/.zsh_plugins.txt" ~/.zsh_plugins.txt
+ln -sf "$(pwd)/.abbreviations" ~/.abbreviations
 ln -sf "$(pwd)/.vimrc" ~/.vimrc
 ln -sf "$(pwd)/.gitconfig" ~/.gitconfig
 

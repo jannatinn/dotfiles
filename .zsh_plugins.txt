@@ -1,0 +1,10 @@
+jeffreytse/zsh-vi-mode
+
+mattmc3/ez-compinit
+zsh-users/zsh-completions kind:fpath path:src
+zsh-users/zsh-autosuggestions
+zdharma-continuum/fast-syntax-highlighting
+
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/ssh-agent

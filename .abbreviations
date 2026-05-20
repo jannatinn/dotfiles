@@ -1,0 +1,26 @@
+abbr via='vi $HOME/.abbreviations'
+
+abbr ls='eza --icons=always --group-directories-first'
+
+abbr vib='vi $HOME/Brewfile'
+
+abbr viz='vi $HOME/.zshrc'
+abbr vizp='vi $HOME/.zsh_plugins.txt'
+abbr soz='source $HOME/.zshrc'
+
+abbr vic='vi main.c'
+abbr crm='clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm -f main.o && { ./main; STATUS=$?; rm -f main; (( STATUS )); }'
+abbr cfm='clang-format -i -style="{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, KeepEmptyLinesAtTheStartOfBlocks: false}" main.c'
+abbr cfrm='clang-format -i -style="{BasedOnStyle: LLVM, BreakBeforeBraces: Allman, IndentWidth: 4, KeepEmptyLinesAtTheStartOfBlocks: false}" main.c && clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm -f main.o && { ./main; STATUS=$?; rm -f main; (( STATUS )); }'
+
+abbr vig='vi $HOME/.gitconfig'
+
+abbr gr='read -q "choice?You sure you want to hard reset and clean? (y/N): " && echo && git reset --hard HEAD && git clean -fd || echo "\nAborted."'
+abbr gl='git log --graph --pretty=format:\'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset\' --abbrev-commit'
+abbr gs='git status'
+abbr gd='git diff'
+abbr ga='git add'
+abbr gc='git commit'
+abbr gp='git push -u origin HEAD'
+abbr gac='git add . && git commit'
+abbr gacp='git add . && git commit && git push -u origin HEAD'
