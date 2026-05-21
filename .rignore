@@ -1,0 +1,15 @@
+.git/
+.local/
+.cache/
+.zsh_sessions/
+.cargo/
+.rustup/
+.vim/
+.tmux/
+.wakatime/
+Library/
+Applications/
+Pictures/
+Movies/
+.DS_Store
+.localized

@@ -11,6 +11,8 @@ abbr bu='brew update && brew upgrade'
 abbr vin='vi $HOME/.config/nvim/init.lua'
 
 abbr vit='vi $HOME/.tmux.conf'
+abbr tm='tmux'
+abbr ta='tmux attach'
 
 abbr vigh='vi $HOME/.config/ghostty/config.ghostty'
 

@@ -12,7 +12,7 @@ vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-vim.opt.signcolumn = "yes:2"
+vim.opt.signcolumn = "auto:4"
 vim.opt.shiftwidth = 4
 vim.opt.shortmess:append("I")
 vim.opt.smartcase = true
@@ -23,7 +23,9 @@ vim.opt.splitright = true
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 280
-vim.opt.virtualedit = "all"
+
+vim.keymap.set({ "n", "v" }, "j", "gj")
+vim.keymap.set({ "n", "v" }, "k", "gk")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
@@ -118,12 +120,29 @@ vim.keymap.set("n", "<leader>c", "<Cmd>BufferClose<CR>")
 
 require("telescope").setup({
 	defaults = {
-		file_ignore_patterns = { "^.git/" },
+		vimgrep_arguments = {
+			"rg",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+			"--ignore-file",
+			vim.fn.expand("$HOME/.rignore"),
+		},
 	},
 	pickers = {
 		find_files = {
 			hidden = true,
 			no_ignore = false,
+			find_command = {
+				"rg",
+				"--files",
+				"--hidden",
+				"--ignore-file",
+				vim.fn.expand("$HOME/.rignore"),
+			},
 		},
 	},
 })
