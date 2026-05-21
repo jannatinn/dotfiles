@@ -2,6 +2,7 @@ abbr e='exit'
 abbr c='clear'
 abbr l='eza --icons --across'
 abbr n='nvim'
+abbr t='tmux'
 abbr ff='fastfetch'
 abbr lg='lazygit'
 
@@ -16,7 +17,6 @@ abbr nin='nvim $HOME/.config/nvim/init.lua'
 abbr niv='nvim $HOME/.vimrc'
 
 abbr nit='nvim $HOME/.tmux.conf'
-abbr tm='tmux'
 abbr ta='tmux attach'
 
 abbr nigh='nvim $HOME/.config/ghostty/config.ghostty'

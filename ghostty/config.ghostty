@@ -4,10 +4,7 @@ bell-features = no-title
 
 font-thicken = true
 font-size = 16
-# font-family = BlexMono Nerd Font
 font-family = JetBrainsMono Nerd Font
-# font-family = BigBlueTerm437 Nerd Font
-# font-family = SF Mono Terminal
 
 window-padding-balance = true
 window-padding-x = 12
@@ -17,7 +14,8 @@ title = " "
 macos-titlebar-proxy-icon = hidden
 mouse-hide-while-typing = true
 
-theme = dark:Apple System Colors,light:Apple System Colors Light
+# theme = dark:Apple System Colors,light:Apple System Colors Light
+theme = dark:Gruvbox Dark,light:Gruvbox Light
 
 background-blur = true
-background-opacity = 0.75
+# background-opacity = 0.75

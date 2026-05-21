@@ -66,6 +66,7 @@ vim.pack.add({
 
 	gh("nvim-mini/mini.nvim"),
 
+	gh("MunifTanjim/nui.nvim"),
 	gh("nvim-tree/nvim-web-devicons"),
 	gh("nvim-lua/plenary.nvim"),
 })
