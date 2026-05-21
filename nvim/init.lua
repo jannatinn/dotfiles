@@ -28,8 +28,8 @@ vim.opt.timeoutlen = 280
 vim.keymap.set({ "n", "v" }, "j", "gj")
 vim.keymap.set({ "n", "v" }, "k", "gk")
 
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+Y]])
-vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
 
 vim.keymap.set({ "n" }, "<Esc>", "<Cmd>nohlsearch<CR>")
 
@@ -37,123 +37,43 @@ local gh = function(repository)
 	return "https://github.com/" .. repository
 end
 
+local gl = function(repository)
+	return "https://gitlab.com/" .. repository
+end
+
 vim.pack.add({
-	gh("ellisonleao/gruvbox.nvim"),
 	gh("wakatime/vim-wakatime"),
+
+	gh("ellisonleao/gruvbox.nvim"),
+
 	gh("neovim/nvim-lspconfig"),
 	gh("mason-org/mason.nvim"),
 	gh("mason-org/mason-lspconfig.nvim"),
 	gh("WhoIsSethDaniel/mason-tool-installer.nvim"),
+
 	gh("stevearc/conform.nvim"),
 	gh("saghen/blink.cmp"),
 	gh("saghen/blink.lib"),
+
+	gh("romgrk/barbar.nvim"),
+	gh("nvim-lualine/lualine.nvim"),
 	gh("nvim-neo-tree/neo-tree.nvim"),
 	gh("nvim-telescope/telescope.nvim"),
-	gh("nvim-telescope/telescope-fzf-native.nvim"),
-	gh("nvim-lualine/lualine.nvim"),
-	gh("romgrk/barbar.nvim"),
+
+	gl("HiPhish/rainbow-delimiters.nvim"),
 	gh("lukas-reineke/indent-blankline.nvim"),
-	gh("folke/snacks.nvim"),
-	gh("nvim-mini/mini.nvim"),
-	gh("MunifTanjim/nui.nvim"),
-	gh("nvim-lua/plenary.nvim"),
 	gh("lewis6991/gitsigns.nvim"),
+
+	gh("nvim-mini/mini.nvim"),
+
 	gh("nvim-tree/nvim-web-devicons"),
+	gh("nvim-lua/plenary.nvim"),
 })
-
-local hooks = function(ev)
-	local name, kind = ev.data.spec.name, ev.data.kind
-	if name == "telescope-fzf-native.nvim" and (kind == "install" or kind == "update") then
-		vim.system({ "make" }, { cwd = ev.data.path }):wait(1000 * 60)
-	end
-end
-vim.api.nvim_create_autocmd("PackChanged", { callback = hooks })
-
-require("snacks").setup()
-
-require("mini.ai").setup()
-require("mini.comment").setup()
-require("mini.pairs").setup()
-require("mini.splitjoin").setup()
-require("mini.surround").setup()
 
 require("wakatime").setup({ status_bar_enabled = false })
 
 require("gruvbox").setup({ transparent_mode = true })
 vim.cmd("colorscheme gruvbox")
-
-require("neo-tree").setup({
-	window = {
-		position = "right",
-		width = 32,
-	},
-	filesystem = {
-		filtered_items = {
-			hide_dotfiles = false,
-			hide_gitignored = false,
-			ignored = false,
-		},
-	},
-})
-vim.keymap.set({ "n" }, "<leader>e", "<Cmd>Neotree toggle<CR>")
-
-require("lualine").setup({
-	options = {
-		globalstatus = true,
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
-	},
-	extensions = { "man", "mason", "quickfix" },
-})
-
-require("barbar").setup({
-	auto_hide = 0,
-	animation = false,
-	focus_on_close = "previous",
-	highlight_visible = false,
-	sidebar_filetypes = {
-		["neo-tree"] = { event = "BufWipeout" },
-	},
-})
-vim.keymap.set("n", "<S-l>", "<Cmd>BufferNext<CR>")
-vim.keymap.set("n", "<S-h>", "<Cmd>BufferPrevious<CR>")
-vim.keymap.set("n", "<leader>c", "<Cmd>BufferClose<CR>")
-
-require("telescope").setup({
-	defaults = {
-		vimgrep_arguments = {
-			"rg",
-			"--color=never",
-			"--no-heading",
-			"--with-filename",
-			"--line-number",
-			"--column",
-			"--smart-case",
-			"--ignore-file",
-			vim.fn.expand("$HOME/.rignore"),
-		},
-	},
-	pickers = {
-		find_files = {
-			hidden = true,
-			no_ignore = false,
-			find_command = {
-				"rg",
-				"--files",
-				"--hidden",
-				"--ignore-file",
-				vim.fn.expand("$HOME/.rignore"),
-			},
-		},
-	},
-})
-local telescope = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", telescope.find_files)
-vim.keymap.set("n", "<leader>fg", telescope.live_grep)
-vim.keymap.set("n", "<leader>fb", telescope.buffers)
-vim.keymap.set("n", "<leader>fh", telescope.help_tags)
-
-require("ibl").setup()
 
 vim.lsp.config("lua_ls", {
 	---@type lspconfig.settings.lua_ls
@@ -212,3 +132,61 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 require("blink.cmp").build():wait(1000 * 60)
 require("blink.cmp").setup({ keymap = { preset = "enter" } })
+
+require("barbar").setup({
+	auto_hide = 0,
+	animation = false,
+	focus_on_close = "previous",
+	highlight_visible = false,
+	sidebar_filetypes = {
+		["neo-tree"] = { event = "BufWipeout" },
+	},
+})
+vim.keymap.set("n", "<S-l>", "<Cmd>BufferNext<CR>")
+vim.keymap.set("n", "<S-h>", "<Cmd>BufferPrevious<CR>")
+vim.keymap.set("n", "<leader>c", "<Cmd>BufferClose<CR>")
+
+require("lualine").setup({
+	options = {
+		globalstatus = true,
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+	},
+	extensions = { "man", "mason", "quickfix" },
+	sections = { lualine_y = {} },
+})
+
+require("neo-tree").setup({
+	window = { position = "right", width = 32 },
+	filesystem = {
+		filtered_items = {
+			hide_dotfiles = false,
+			hide_gitignored = false,
+			ignored = false,
+		},
+	},
+})
+vim.keymap.set({ "n" }, "<leader>e", "<Cmd>Neotree toggle<CR>")
+
+require("telescope").setup({
+	pickers = {
+		find_files = { hidden = true, no_ignore = false },
+	},
+})
+local telescope_builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files)
+vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep)
+vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags)
+
+require("ibl").setup()
+
+require("gitsigns").setup({
+	attach_to_untracked = true,
+	current_line_blame = true,
+})
+
+require("mini.ai").setup()
+require("mini.comment").setup()
+require("mini.pairs").setup()
+require("mini.splitjoin").setup()
+require("mini.surround").setup()
