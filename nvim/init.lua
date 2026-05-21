@@ -19,8 +19,8 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 280
 
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+Y]])
-vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+vim.keymap.set({ "n", "v" }, "y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "p", [["+p]])
 
 vim.pack.add({
 	"https://github.com/ellisonleao/gruvbox.nvim",
@@ -46,9 +46,7 @@ vim.lsp.config("lua_ls", {
 	---@type lspconfig.settings.lua_ls
 	settings = {
 		Lua = {
-			runtime = {
-				version = "LuaJIT",
-			},
+			runtime = { version = "LuaJIT" },
 			workspace = {
 				preloadFileSize = 10000,
 				library = vim.api.nvim_get_runtime_file("*", true),
@@ -58,12 +56,23 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
+vim.lsp.config("clangd", {
+	---@type lspconfig.settings.clangd
+	settings = {},
+})
+
 require("mason").setup()
 require("mason-tool-installer").setup({
-	ensure_installed = { "stylua", "clang-format" },
+	ensure_installed = {
+		"stylua",
+		"clang-format",
+	},
 })
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "clangd" },
+	ensure_installed = {
+		"lua_ls",
+		"clangd",
+	},
 })
 
 vim.diagnostic.config({
@@ -77,7 +86,9 @@ require("conform").setup({
 		c = { "clang_format" },
 	},
 	formatters = {
-		clang_format = { prepend_args = { "--style=file" } },
+		clang_format = {
+			prepend_args = { "--style=file" },
+		},
 	},
 	format_on_save = {
 		timeout_ms = 2000,
@@ -93,5 +104,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 require("blink.cmp").build():wait(1000 * 60)
 require("blink.cmp").setup({
-	keymap = { preset = "super-tab" },
+	keymap = {
+		preset = "enter",
+	},
 })
