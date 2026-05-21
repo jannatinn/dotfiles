@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 vim.opt.background = "dark"
 vim.opt.breakindent = true
+vim.opt.colorcolumn = "120"
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
@@ -11,6 +12,7 @@ vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
+vim.opt.signcolumn = "yes:2"
 vim.opt.shiftwidth = 4
 vim.opt.shortmess:append("I")
 vim.opt.smartcase = true
@@ -21,6 +23,7 @@ vim.opt.splitright = true
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 280
+vim.opt.virtualedit = "all"
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
@@ -47,9 +50,8 @@ vim.pack.add({
 	gh("nvim-lualine/lualine.nvim"),
 	gh("romgrk/barbar.nvim"),
 	gh("lukas-reineke/indent-blankline.nvim"),
-	gh("windwp/nvim-autopairs"),
 	gh("folke/snacks.nvim"),
-	gh("nvim-mini/mini.surround"),
+	gh("nvim-mini/mini.nvim"),
 	gh("MunifTanjim/nui.nvim"),
 	gh("nvim-lua/plenary.nvim"),
 	gh("lewis6991/gitsigns.nvim"),
@@ -66,6 +68,10 @@ vim.api.nvim_create_autocmd("PackChanged", { callback = hooks })
 
 require("snacks").setup()
 
+require("mini.ai").setup()
+require("mini.comment").setup()
+require("mini.pairs").setup()
+require("mini.splitjoin").setup()
 require("mini.surround").setup()
 
 require("wakatime").setup({ status_bar_enabled = false })
@@ -74,6 +80,10 @@ require("gruvbox").setup({ transparent_mode = true })
 vim.cmd("colorscheme gruvbox")
 
 require("neo-tree").setup({
+	window = {
+		position = "right",
+		width = 32,
+	},
 	filesystem = {
 		filtered_items = {
 			hide_dotfiles = false,
@@ -94,8 +104,9 @@ require("lualine").setup({
 })
 
 require("barbar").setup({
+	auto_hide = 0,
 	animation = false,
-	auto_hide = 1,
+	focus_on_close = "previous",
 	highlight_visible = false,
 	sidebar_filetypes = {
 		["neo-tree"] = { event = "BufWipeout" },
@@ -123,8 +134,6 @@ vim.keymap.set("n", "<leader>fb", telescope.buffers)
 vim.keymap.set("n", "<leader>fh", telescope.help_tags)
 
 require("ibl").setup()
-
-require("nvim-autopairs").setup()
 
 vim.lsp.config("lua_ls", {
 	---@type lspconfig.settings.lua_ls
