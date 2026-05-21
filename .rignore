@@ -1,4 +1,5 @@
 .git/
+.ssh/
 .local/
 .cache/
 .zsh_sessions/
@@ -13,3 +14,5 @@ Pictures/
 Movies/
 .DS_Store
 .localized
+.CFUserTextEncoding
+.hushlogin
