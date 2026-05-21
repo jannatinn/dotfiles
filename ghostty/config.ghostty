@@ -18,4 +18,4 @@ mouse-hide-while-typing = true
 theme = dark:Apple System Colors,light:Apple System Colors Light
 
 background-blur = true
-background-opacity = 0.8
+# background-opacity = 0.8

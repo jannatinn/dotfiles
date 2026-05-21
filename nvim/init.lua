@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 vim.opt.breakindent = true
 vim.opt.confirm = true
 vim.opt.cursorline = true
@@ -19,28 +21,107 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 280
 
-vim.keymap.set({ "n", "v" }, "y", [["+Y]])
-vim.keymap.set({ "n", "v" }, "p", [["+p]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+
+vim.keymap.set({ "n" }, "<Esc>", "<Cmd>nohlsearch<CR>")
+
+local gh = function(repository)
+	return "https://github.com/" .. repository
+end
 
 vim.pack.add({
-	"https://github.com/ellisonleao/gruvbox.nvim",
-	"https://github.com/wakatime/vim-wakatime",
-	"https://github.com/neovim/nvim-lspconfig",
-	"https://github.com/mason-org/mason.nvim",
-	"https://github.com/mason-org/mason-lspconfig.nvim",
-	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
-	"https://github.com/stevearc/conform.nvim",
-	"https://github.com/saghen/blink.cmp",
-	"https://github.com/saghen/blink.lib",
-	"https://github.com/lukas-reineke/indent-blankline.nvim",
+	gh("ellisonleao/gruvbox.nvim"),
+	gh("wakatime/vim-wakatime"),
+	gh("neovim/nvim-lspconfig"),
+	gh("mason-org/mason.nvim"),
+	gh("mason-org/mason-lspconfig.nvim"),
+	gh("WhoIsSethDaniel/mason-tool-installer.nvim"),
+	gh("stevearc/conform.nvim"),
+	gh("saghen/blink.cmp"),
+	gh("saghen/blink.lib"),
+	gh("nvim-neo-tree/neo-tree.nvim"),
+	gh("nvim-telescope/telescope.nvim"),
+	gh("nvim-telescope/telescope-fzf-native.nvim"),
+	gh("nvim-lualine/lualine.nvim"),
+	gh("romgrk/barbar.nvim"),
+	gh("lukas-reineke/indent-blankline.nvim"),
+	gh("windwp/nvim-autopairs"),
+	gh("folke/snacks.nvim"),
+	gh("nvim-mini/mini.surround"),
+	gh("MunifTanjim/nui.nvim"),
+	gh("nvim-lua/plenary.nvim"),
+	gh("lewis6991/gitsigns.nvim"),
+	gh("nvim-tree/nvim-web-devicons"),
 })
 
-require("gruvbox").setup({
-	transparent_mode = true,
+local hooks = function(ev)
+	local name, kind = ev.data.spec.name, ev.data.kind
+	if name == "telescope-fzf-native.nvim" and (kind == "install" or kind == "update") then
+		vim.system({ "make" }, { cwd = ev.data.path }):wait(1000 * 60)
+	end
+end
+vim.api.nvim_create_autocmd("PackChanged", { callback = hooks })
+
+require("snacks").setup()
+
+require("mini.surround").setup({
+	mappings = {
+		add = "ys",
+		delete = "ds",
+		change = "cs",
+		output_left = "{",
+	},
 })
+
+require("wakatime").setup({ status_bar_enabled = false })
+
+require("gruvbox").setup({ transparent_mode = true })
 vim.cmd("colorscheme gruvbox")
 
+require("neo-tree").setup({
+	filesystem = {
+		filtered_items = {
+			hide_dotfiles = false,
+			hide_gitignored = false,
+			ignored = false,
+		},
+	},
+})
+vim.keymap.set({ "n" }, "<leader>e", "<Cmd>Neotree toggle<CR>")
+
+require("lualine").setup({
+	options = {
+		globalstatus = true,
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+	},
+	extensions = { "man", "mason", "quickfix" },
+})
+
+require("barbar").setup({
+	auto_hide = 1,
+	highlight_visible = false,
+	icons = {
+		separator = { left = "", right = "" },
+	},
+	sidebar_filetypes = {
+		["neo-tree"] = { event = "BufWipeout" },
+	},
+})
+vim.keymap.set("n", "<S-l>", "<Cmd>BufferNext<CR>")
+vim.keymap.set("n", "<S-h>", "<Cmd>BufferPrevious<CR>")
+vim.keymap.set("n", "<leader>c", "<Cmd>BufferClose<CR>")
+
+local telescope = require("telescope.builtin")
+vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
+vim.keymap.set("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
+
 require("ibl").setup()
+
+require("nvim-autopairs").setup()
 
 vim.lsp.config("lua_ls", {
 	---@type lspconfig.settings.lua_ls
@@ -49,16 +130,11 @@ vim.lsp.config("lua_ls", {
 			runtime = { version = "LuaJIT" },
 			workspace = {
 				preloadFileSize = 10000,
-				library = vim.api.nvim_get_runtime_file("*", true),
+				library = vim.api.nvim_get_runtime_file("", true),
 				checkThirdParty = false,
 			},
 		},
 	},
-})
-
-vim.lsp.config("clangd", {
-	---@type lspconfig.settings.clangd
-	settings = {},
 })
 
 require("mason").setup()
@@ -75,9 +151,7 @@ require("mason-lspconfig").setup({
 	},
 })
 
-vim.diagnostic.config({
-	virtual_text = {},
-})
+vim.diagnostic.config({ virtual_text = true })
 vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 
 require("conform").setup({
@@ -94,6 +168,8 @@ require("conform").setup({
 		timeout_ms = 2000,
 		lsp_format = "fallback",
 	},
+	notify_on_error = false,
+	notify_no_formatters = false,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
@@ -103,8 +179,4 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 require("blink.cmp").build():wait(1000 * 60)
-require("blink.cmp").setup({
-	keymap = {
-		preset = "enter",
-	},
-})
+require("blink.cmp").setup({ keymap = { preset = "enter" } })

@@ -2,6 +2,7 @@ abbr via='vi $HOME/.abbreviations'
 
 abbr cl='clear'
 abbr ff='fastfetch'
+abbr lg='lazygit'
 
 abbr vib='vi $HOME/.brewfile'
 abbr bb='brew bundle install --file=$HOME/.brewfile'
@@ -24,7 +25,7 @@ abbr cfrm='clang-format -i -style=file main.c && clang -std=c23 -Wall -Wextra -W
 abbr vig='vi $HOME/.gitconfig'
 
 abbr gr='read -q "choice?You sure you want to hard reset and clean? (y/N): " && echo && git reset --hard HEAD && git clean -fd || echo "\nAborted."'
-abbr gl='git log --graph --pretty=format:\'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset\' --abbrev-commit'
+abbr gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
 abbr gs='git status'
 abbr gd='git diff'
 abbr ga='git add'

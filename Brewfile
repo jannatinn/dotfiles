@@ -19,3 +19,5 @@ brew "cmatrix"
 brew "btop"
 
 brew "llvm"
+brew "ripgrep"
+brew "fd"
