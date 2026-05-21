@@ -1,31 +1,36 @@
-abbr via='vi $HOME/.abbreviations'
-
-abbr cl='clear'
+abbr e='exit'
+abbr c='clear'
+abbr l='eza --icons --across'
+abbr n='nvim'
 abbr ff='fastfetch'
 abbr lg='lazygit'
 
-abbr vib='vi $HOME/.brewfile'
+abbr nia='nvim $HOME/.abbreviations'
+
+abbr nib='nvim $HOME/.brewfile'
 abbr bb='brew bundle install --file=$HOME/.brewfile'
 abbr bu='brew update && brew upgrade'
 
-abbr vin='vi $HOME/.config/nvim/init.lua'
+abbr nin='nvim $HOME/.config/nvim/init.lua'
 
-abbr vit='vi $HOME/.tmux.conf'
+abbr niv='nvim $HOME/.vimrc'
+
+abbr nit='nvim $HOME/.tmux.conf'
 abbr tm='tmux'
 abbr ta='tmux attach'
 
-abbr vigh='vi $HOME/.config/ghostty/config.ghostty'
+abbr nigh='nvim $HOME/.config/ghostty/config.ghostty'
 
-abbr viz='vi $HOME/.zshrc'
-abbr vizp='vi $HOME/.zsh_plugins.txt'
+abbr niz='nvim $HOME/.zshrc'
+abbr nizp='nvim $HOME/.zsh_plugins.txt'
 abbr soz='source $HOME/.zshrc'
 
-abbr vic='vi main.c'
+abbr nic='nvim main.c'
 abbr crm='clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm main.o && ./main; rm main'
 abbr cfm='clang-format -i -style=file main.c'
 abbr cfrm='clang-format -i -style=file main.c && clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm main.o && ./main; rm main'
 
-abbr vig='vi $HOME/.gitconfig'
+abbr nig='nvim $HOME/.gitconfig'
 
 abbr gr='read -q "choice?You sure you want to hard reset and clean? (y/N): " && echo && git reset --hard HEAD && git clean -fd || echo "\nAborted."'
 abbr gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
@@ -40,4 +45,4 @@ abbr gacp='git add . && git commit && git push -u origin HEAD'
 abbr grb='gh browse'
 abbr grc='gh repo create --private --source=. --remote=origin'
 
-abbr virg='vi $HOME/.rignore'
+abbr nirg='nvim $HOME/.rignore'

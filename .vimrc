@@ -14,13 +14,13 @@ set expandtab
 set hlsearch
 set incsearch
 set list
-set listchars=tab» ,trail·
+set listchars="tab» ,trail·"
 set mouse=a
 set number
 set ruler
 set scrolloff=8
 set sidescrolloff=8
-set signcolumn=auto:4
+set signcolumn="auto:4"
 set shiftwidth=4
 set shortmess+=I
 set smartcase

@@ -2,11 +2,6 @@ setopt CHASE_LINKS
 
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
-export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.abbreviations"
-export ABBR_SET_FROM_SOURCE=true
-source $(brew --prefix)/share/zsh-abbr/zsh-abbr.zsh
-FPATH=$(brew --prefix)/share/zsh-abbr:$FPATH
-
 export DISABLE_AUTO_TITLE="true"
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 function zvm_after_init() {
@@ -15,14 +10,15 @@ function zvm_after_init() {
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
+export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.abbreviations"
+export ABBR_SET_FROM_SOURCE=true
+source $(brew --prefix)/share/zsh-abbr/zsh-abbr.zsh
+FPATH=$(brew --prefix)/share/zsh-abbr:$FPATH
+
 eval "$(zoxide init zsh --cmd j)"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$(brew --prefix)/opt/llvm/bin:$PATH"
-
-. "$HOME/.cargo/env"
-
-alias vi="nvim"
-alias ls="eza --icons=always --group-directories-first --across --git"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 eval "$(starship init zsh)"

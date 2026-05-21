@@ -15,6 +15,7 @@ vim.opt.sidescrolloff = 8
 vim.opt.signcolumn = "yes:2"
 vim.opt.shiftwidth = 4
 vim.opt.shortmess:append("I")
+vim.opt.showmode = false
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.softtabstop = 4
