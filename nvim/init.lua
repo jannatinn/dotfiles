@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 
+vim.opt.background = "dark"
 vim.opt.breakindent = true
 vim.opt.confirm = true
 vim.opt.cursorline = true
@@ -65,14 +66,7 @@ vim.api.nvim_create_autocmd("PackChanged", { callback = hooks })
 
 require("snacks").setup()
 
-require("mini.surround").setup({
-	mappings = {
-		add = "ys",
-		delete = "ds",
-		change = "cs",
-		output_left = "{",
-	},
-})
+require("mini.surround").setup()
 
 require("wakatime").setup({ status_bar_enabled = false })
 
@@ -100,11 +94,9 @@ require("lualine").setup({
 })
 
 require("barbar").setup({
+	animation = false,
 	auto_hide = 1,
 	highlight_visible = false,
-	icons = {
-		separator = { left = "", right = "" },
-	},
 	sidebar_filetypes = {
 		["neo-tree"] = { event = "BufWipeout" },
 	},
@@ -113,11 +105,22 @@ vim.keymap.set("n", "<S-l>", "<Cmd>BufferNext<CR>")
 vim.keymap.set("n", "<S-h>", "<Cmd>BufferPrevious<CR>")
 vim.keymap.set("n", "<leader>c", "<Cmd>BufferClose<CR>")
 
+require("telescope").setup({
+	defaults = {
+		file_ignore_patterns = { "^.git/" },
+	},
+	pickers = {
+		find_files = {
+			hidden = true,
+			no_ignore = false,
+		},
+	},
+})
 local telescope = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
-vim.keymap.set("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
-vim.keymap.set("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>ff", telescope.find_files)
+vim.keymap.set("n", "<leader>fg", telescope.live_grep)
+vim.keymap.set("n", "<leader>fb", telescope.buffers)
+vim.keymap.set("n", "<leader>fh", telescope.help_tags)
 
 require("ibl").setup()
 

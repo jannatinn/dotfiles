@@ -6,6 +6,7 @@ ln -sf "$(pwd)/.zsh_plugins.txt" $HOME/.zsh_plugins.txt
 ln -sf "$(pwd)/.abbreviations" $HOME/.abbreviations
 ln -sf "$(pwd)/starship.toml" $HOME/.config/starship.toml
 ln -sf "$(pwd)/.gitconfig" $HOME/.gitconfig
+ln -sf "$(pwd)/.tmux.conf" $HOME/.tmux.conf
 ln -sf "$(pwd)/.vimrc" $HOME/.vimrc
 ln -sf "$(pwd)/nvim" $HOME/.config/
 ln -sf "$(pwd)/ghostty" $HOME/.config/

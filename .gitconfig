@@ -3,7 +3,7 @@
 	email = man@jannatinnaim.com
 	signingkey = ~/.ssh/id_ed25519.pub
 [core]
-	editor = vi
+	editor = nvim
 [init]
 	defaultBranch = main
 [gpg]

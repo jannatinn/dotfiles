@@ -10,6 +10,7 @@ brew "gh"
 
 brew "neovim"
 brew "tmux"
+brew "tpm"
 
 brew "eza"
 brew "bat"
@@ -21,3 +22,5 @@ brew "btop"
 brew "llvm"
 brew "ripgrep"
 brew "fd"
+brew "bc"
+brew "jq"
