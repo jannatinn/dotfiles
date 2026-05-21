@@ -12,7 +12,7 @@ vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-vim.opt.signcolumn = "auto:4"
+vim.opt.signcolumn = "yes:2"
 vim.opt.shiftwidth = 4
 vim.opt.shortmess:append("I")
 vim.opt.smartcase = true

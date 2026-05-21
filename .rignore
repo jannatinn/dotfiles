@@ -16,3 +16,4 @@ Movies/
 .localized
 .CFUserTextEncoding
 .hushlogin
+*lock.json
