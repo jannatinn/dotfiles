@@ -38,6 +38,6 @@ abbr gac='git add . && git commit'
 abbr gacp='git add . && git commit && git push -u origin HEAD'
 
 abbr grb='gh browse'
-abbr grc='gh repo create --private --source=. --remote=upstream'
+abbr grc='gh repo create --private --source=. --remote=origin'
 
 abbr virg='vi $HOME/.rignore'
