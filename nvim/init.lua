@@ -99,7 +99,6 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
 		"clangd",
-		"ruff",
 	},
 })
 
@@ -112,14 +111,10 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		c = { "clang_format" },
-		python = { "ruff_format" },
 	},
 	formatters = {
 		clang_format = {
 			prepend_args = { "--style=file" },
-		},
-		ruff_format = {
-			prepend_args = { "--config", "line-length=120" },
 		},
 	},
 	format_on_save = {

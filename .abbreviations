@@ -1,41 +1,30 @@
 abbr e='exit'
 abbr c='clear'
+
 abbr l='eza --icons --across'
-abbr n='nvim'
-abbr t='tmux'
-abbr ff='fastfetch'
-abbr lg='lazygit'
-
-abbr nia='nvim $HOME/.abbreviations'
-
 abbr ll='eza --icons --across --all --long'
-abbr llg='eza --icons --across --all --long --group-directories-first'
 
-abbr nib='nvim $HOME/.brewfile'
+abbr soz='source $HOME/.zshrc'
+
 abbr bb='brew bundle install --file=$HOME/.brewfile'
 abbr bu='brew update && brew upgrade'
 
+abbr n='nvim'
 abbr nin='nvim $HOME/.config/nvim/init.lua'
-
-abbr niv='nvim $HOME/.vimrc'
-
+abbr nia='nvim $HOME/.abbreviations'
+abbr nib='nvim $HOME/.brewfile'
 abbr nit='nvim $HOME/.tmux.conf'
-abbr ta='tmux attach'
-
+abbr nigt='nvim $HOME/.gitconfig'
 abbr nigh='nvim $HOME/.config/ghostty/config.ghostty'
-
 abbr niz='nvim $HOME/.zshrc'
 abbr nizp='nvim $HOME/.zsh_plugins.txt'
-abbr soz='source $HOME/.zshrc'
 
-abbr nic='nvim main.c'
-abbr crm='clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address -fsanitize=undefined -O0 -g main.c -o main && ./main; rm -r main main.dSYM'
-abbr cfm='clang-format -i -style=file main.c'
+abbr t='tmux'
+abbr ta='tmux attach'
 
-abbr nig='nvim $HOME/.gitconfig'
+abbr gb='gh browse'
+abbr grc='gh repo create --source=. --remote=origin --public'
 
-abbr gr='read -q "choice?You sure you want to hard reset and clean? (y/N): " && echo && git reset --hard HEAD && git clean -fd || echo "\nAborted."'
-abbr gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
 abbr gs='git status'
 abbr gd='git diff'
 abbr ga='git add'
@@ -43,8 +32,3 @@ abbr gc='git commit'
 abbr gp='git push -u origin HEAD'
 abbr gac='git add . && git commit'
 abbr gacp='git add . && git commit && git push -u origin HEAD'
-
-abbr grb='gh browse'
-abbr grc='gh repo create --private --source=. --remote=origin'
-
-abbr nirg='nvim $HOME/.rignore'

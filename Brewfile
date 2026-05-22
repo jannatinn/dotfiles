@@ -1,11 +1,10 @@
 brew "antidote"
-brew "olets/tap/zsh-abbr"
+brew "zoxide"
 brew "starship"
 
+brew "gh"
 brew "git"
 brew "git-lfs"
-brew "lazygit"
-brew "gh"
 
 brew "neovim"
 
@@ -14,18 +13,6 @@ brew "tpm"
 
 brew "eza"
 brew "bat"
-brew "zoxide"
-
-brew "fastfetch"
-brew "cmatrix"
-brew "btop"
 
 brew "llvm"
-brew "gcc"
-brew "uv"
-
-brew "ripgrep"
-brew "fd"
-
-brew "bc"
-brew "jq"
+brew "rust"

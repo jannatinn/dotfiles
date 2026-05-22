@@ -1,6 +1,11 @@
+theme = dark:Gruvbox Dark,light:Gruvbox Light
+
+title = " "
 term = xterm-256color
-shell-integration-features = no-cursor
 bell-features = no-title
+shell-integration-features = no-cursor
+mouse-hide-while-typing = true
+macos-titlebar-proxy-icon = hidden
 
 font-thicken = true
 font-size = 16
@@ -10,13 +15,5 @@ window-padding-balance = true
 window-padding-x = 12
 window-padding-y = 8
 
-title = " "
-macos-titlebar-proxy-icon = hidden
-mouse-hide-while-typing = true
-
-# theme = dark:Apple System Colors,light:Apple System Colors Light
-theme = dark:Gruvbox Dark,light:Gruvbox Light
-
 background-blur = true
-# background-opacity = 0.75
-background-opacity = 0.98
+# background-opacity = 0.86

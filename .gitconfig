@@ -4,6 +4,7 @@
 	signingkey = ~/.ssh/id_ed25519.pub
 [core]
 	editor = nvim
+	excludesfile = /Users/jannatinnaim/.gitignore
 [init]
 	defaultBranch = main
 [gpg]
@@ -17,3 +18,5 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[alias]
+	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
