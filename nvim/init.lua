@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 
-vim.opt.background = "dark"
 vim.opt.breakindent = true
 vim.opt.colorcolumn = "120"
 vim.opt.confirm = true
@@ -100,20 +99,27 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
 		"clangd",
+		"ruff",
 	},
 })
 
 vim.diagnostic.config({ virtual_text = true })
-vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+vim.keymap.set("n", "gl", function()
+	vim.diagnostic.open_float({ source = true })
+end)
 
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		c = { "clang_format" },
+		python = { "ruff_format" },
 	},
 	formatters = {
 		clang_format = {
 			prepend_args = { "--style=file" },
+		},
+		ruff_format = {
+			prepend_args = { "--config", "line-length=120" },
 		},
 	},
 	format_on_save = {
@@ -157,7 +163,10 @@ require("lualine").setup({
 })
 
 require("neo-tree").setup({
-	window = { position = "right", width = 28 },
+	window = {
+		position = "left",
+		width = 32,
+	},
 	filesystem = {
 		filtered_items = {
 			hide_dotfiles = false,

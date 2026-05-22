@@ -10,3 +10,5 @@ zdharma-continuum/fast-syntax-highlighting
 getantidote/use-omz
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/ssh-agent
+
+MichaelAquilina/zsh-autoswitch-virtualenv

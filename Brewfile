@@ -22,6 +22,7 @@ brew "btop"
 
 brew "llvm"
 brew "gcc"
+brew "uv"
 
 brew "ripgrep"
 brew "fd"

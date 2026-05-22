@@ -4,7 +4,6 @@ let g:mapleader = ' '
 
 set autoindent
 set autoread
-set background=dark
 set breakindent
 set colorcolumn=120
 set clipboard=autoselectplus
