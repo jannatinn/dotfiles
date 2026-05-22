@@ -40,10 +40,6 @@ local gh = function(repository)
 	return "https://github.com/" .. repository
 end
 
-local gl = function(repository)
-	return "https://gitlab.com/" .. repository
-end
-
 vim.pack.add({
 	gh("wakatime/vim-wakatime"),
 
@@ -63,7 +59,7 @@ vim.pack.add({
 	gh("nvim-neo-tree/neo-tree.nvim"),
 	gh("nvim-telescope/telescope.nvim"),
 
-	gl("HiPhish/rainbow-delimiters.nvim"),
+	gh("HiPhish/rainbow-delimiters.nvim"),
 	gh("lukas-reineke/indent-blankline.nvim"),
 	gh("lewis6991/gitsigns.nvim"),
 
@@ -183,6 +179,7 @@ vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep)
 vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags)
 
 require("ibl").setup()
+require("rainbow-delimiters.setup").setup({})
 
 require("gitsigns").setup({
 	attach_to_untracked = true,
