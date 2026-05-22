@@ -13,6 +13,3 @@ brew "tpm"
 
 brew "eza"
 brew "bat"
-
-brew "llvm"
-brew "rust"

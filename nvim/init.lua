@@ -114,7 +114,7 @@ require("conform").setup({
 	},
 	formatters = {
 		clang_format = {
-			prepend_args = { "--style=file" },
+			prepend_args = { "--style=microsoft" },
 		},
 	},
 	format_on_save = {
@@ -131,7 +131,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
-require("blink.cmp").build():wait(1000 * 60)
 require("blink.cmp").setup({ keymap = { preset = "enter" } })
 
 require("barbar").setup({
@@ -191,7 +190,6 @@ require("gitsigns").setup({
 })
 
 require("mini.ai").setup()
-require("mini.comment").setup()
 require("mini.pairs").setup()
-require("mini.splitjoin").setup()
 require("mini.surround").setup()
+require("mini.comment").setup()
