@@ -21,6 +21,7 @@ brew "cmatrix"
 brew "btop"
 
 brew "llvm"
+brew "gcc"
 
 brew "ripgrep"
 brew "fd"

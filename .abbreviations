@@ -8,6 +8,9 @@ abbr lg='lazygit'
 
 abbr nia='nvim $HOME/.abbreviations'
 
+abbr ll='eza --icons --across --all --long'
+abbr llg='eza --icons --across --all --long --group-directories-first'
+
 abbr nib='nvim $HOME/.brewfile'
 abbr bb='brew bundle install --file=$HOME/.brewfile'
 abbr bu='brew update && brew upgrade'
@@ -26,9 +29,8 @@ abbr nizp='nvim $HOME/.zsh_plugins.txt'
 abbr soz='source $HOME/.zshrc'
 
 abbr nic='nvim main.c'
-abbr crm='clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm main.o && ./main; rm main'
+abbr crm='clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -fsanitize=address -fsanitize=undefined -O0 -g main.c -o main && ./main; rm -r main main.dSYM'
 abbr cfm='clang-format -i -style=file main.c'
-abbr cfrm='clang-format -i -style=file main.c && clang -std=c23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -O0 -g -c main.c && clang main.o -o main && rm main.o && ./main; rm main'
 
 abbr nig='nvim $HOME/.gitconfig'
 

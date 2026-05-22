@@ -1,5 +1,7 @@
 setopt CHASE_LINKS
 
+export EDITOR=nvim
+
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
 export DISABLE_AUTO_TITLE="true"

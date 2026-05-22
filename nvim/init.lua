@@ -12,7 +12,7 @@ vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-vim.opt.signcolumn = "yes:2"
+vim.opt.signcolumn = "auto:2"
 vim.opt.shiftwidth = 4
 vim.opt.shortmess:append("I")
 vim.opt.showmode = false
@@ -32,6 +32,9 @@ vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p')
 
 vim.keymap.set({ "n" }, "<Esc>", "<Cmd>nohlsearch<CR>")
+
+vim.keymap.set({ "n" }, "<leader>w", "<Cmd>w<CR>")
+vim.keymap.set({ "n" }, "<leader>q", "<Cmd>q<CR>")
 
 local gh = function(repository)
 	return "https://github.com/" .. repository
@@ -158,7 +161,7 @@ require("lualine").setup({
 })
 
 require("neo-tree").setup({
-	window = { position = "right", width = 32 },
+	window = { position = "right", width = 28 },
 	filesystem = {
 		filtered_items = {
 			hide_dotfiles = false,
