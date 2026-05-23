@@ -173,7 +173,7 @@ vim.keymap.set({ "n" }, "<leader>e", "<Cmd>Neotree toggle<CR>")
 
 require("telescope").setup({
 	pickers = {
-		find_files = { hidden = true, no_ignore = false },
+		find_files = { hidden = true },
 	},
 })
 local telescope_builtin = require("telescope.builtin")
