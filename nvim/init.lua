@@ -1,9 +1,9 @@
 vim.g.mapleader = " "
 
 vim.opt.breakindent = true
-vim.opt.colorcolumn = "120"
+-- vim.opt.colorcolumn = "120"
 vim.opt.confirm = true
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·" }
@@ -134,7 +134,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 require("blink.cmp").setup({ keymap = { preset = "enter" } })
 
 require("barbar").setup({
-	auto_hide = 0,
+	auto_hide = 1,
 	animation = false,
 	focus_on_close = "previous",
 	highlight_visible = false,
@@ -158,8 +158,8 @@ require("lualine").setup({
 
 require("neo-tree").setup({
 	window = {
-		position = "left",
-		width = 32,
+		position = "right",
+		width = 28,
 	},
 	filesystem = {
 		filtered_items = {

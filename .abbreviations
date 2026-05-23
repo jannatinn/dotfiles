@@ -3,6 +3,7 @@ abbr c='clear'
 
 abbr l='eza --icons --across'
 abbr ll='eza --icons --across --all --long'
+abbr lle='eza --icons --across --all --long --group-directories-first --git'
 
 abbr soz='source $HOME/.zshrc'
 
@@ -21,6 +22,8 @@ abbr nizp='nvim $HOME/.zsh_plugins.txt'
 
 abbr t='tmux'
 abbr ta='tmux attach'
+
+abbr ff='fastfetch'
 
 abbr gb='gh browse'
 abbr grc='gh repo create --source=. --remote=origin --public'
