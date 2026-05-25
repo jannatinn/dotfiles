@@ -35,38 +35,39 @@ vim.keymap.set({ "n" }, "<Esc>", "<Cmd>nohlsearch<CR>")
 vim.keymap.set({ "n" }, "<leader>w", "<Cmd>w<CR>")
 vim.keymap.set({ "n" }, "<leader>q", "<Cmd>q<CR>")
 
-local gh = function(repository)
-	return "https://github.com/" .. repository
-end
+local gh = "https://github.com/"
 
 vim.pack.add({
-	gh("wakatime/vim-wakatime"),
+	gh .. "wakatime/vim-wakatime",
 
-	gh("ellisonleao/gruvbox.nvim"),
+	gh .. "ellisonleao/gruvbox.nvim",
 
-	gh("neovim/nvim-lspconfig"),
-	gh("mason-org/mason.nvim"),
-	gh("mason-org/mason-lspconfig.nvim"),
-	gh("WhoIsSethDaniel/mason-tool-installer.nvim"),
+	gh .. "neovim/nvim-lspconfig",
+	gh .. "mason-org/mason.nvim",
+	gh .. "mason-org/mason-lspconfig.nvim",
+	gh .. "WhoIsSethDaniel/mason-tool-installer.nvim",
 
-	gh("stevearc/conform.nvim"),
-	gh("saghen/blink.cmp"),
-	gh("saghen/blink.lib"),
+	gh .. "stevearc/conform.nvim",
+	gh .. "saghen/blink.cmp",
+	gh .. "saghen/blink.lib",
 
-	gh("romgrk/barbar.nvim"),
-	gh("nvim-lualine/lualine.nvim"),
-	gh("nvim-neo-tree/neo-tree.nvim"),
-	gh("nvim-telescope/telescope.nvim"),
+	gh .. "romgrk/barbar.nvim",
+	gh .. "nvim-lualine/lualine.nvim",
+	gh .. "nvim-neo-tree/neo-tree.nvim",
+	gh .. "nvim-telescope/telescope.nvim",
 
-	gh("HiPhish/rainbow-delimiters.nvim"),
-	gh("lukas-reineke/indent-blankline.nvim"),
-	gh("lewis6991/gitsigns.nvim"),
+	gh .. "HiPhish/rainbow-delimiters.nvim",
+	gh .. "lukas-reineke/indent-blankline.nvim",
+	gh .. "lewis6991/gitsigns.nvim",
 
-	gh("nvim-mini/mini.nvim"),
+	gh .. "nvim-mini/mini.comment",
+	gh .. "windwp/nvim-autopairs",
+	gh .. "nvim-treesitter/nvim-treesitter-textobjects",
+	gh .. "kylechui/nvim-surround",
 
-	gh("MunifTanjim/nui.nvim"),
-	gh("nvim-tree/nvim-web-devicons"),
-	gh("nvim-lua/plenary.nvim"),
+	gh .. "MunifTanjim/nui.nvim",
+	gh .. "nvim-tree/nvim-web-devicons",
+	gh .. "nvim-lua/plenary.nvim",
 })
 
 require("wakatime").setup({ status_bar_enabled = false })
@@ -114,14 +115,14 @@ require("conform").setup({
 	},
 	formatters = {
 		clang_format = {
-			prepend_args = { "--style=microsoft" },
+			prepend_args = { "-style=microsoft" },
 		},
 	},
 	format_on_save = {
 		timeout_ms = 2000,
 		lsp_format = "fallback",
 	},
-	notify_on_error = false,
+	notify_on_error = true,
 	notify_no_formatters = false,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -158,7 +159,7 @@ require("lualine").setup({
 
 require("neo-tree").setup({
 	window = {
-		position = "right",
+		position = "left",
 		width = 28,
 	},
 	filesystem = {
@@ -189,7 +190,18 @@ require("gitsigns").setup({
 	current_line_blame = true,
 })
 
-require("mini.ai").setup()
-require("mini.pairs").setup()
-require("mini.surround").setup()
 require("mini.comment").setup()
+
+require("nvim-autopairs").setup()
+
+vim.g.no_plugin_maps = true
+require("nvim-treesitter-textobjects").setup()
+local textobjects_select = require("nvim-treesitter-textobjects.select")
+vim.keymap.set({ "x", "o" }, "af", function()
+	textobjects_select.select_textobject("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "if", function()
+	textobjects_select.select_textobject("@function.inner", "textobjects")
+end)
+
+require("nvim-surround").setup()
